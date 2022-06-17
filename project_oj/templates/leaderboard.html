@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% block contents %} 
+    <div class="space-y-10 items-center">
+        <div class=" mx-20 mt-64 pl-96 py-8 bg-black">
+            <table class="border-2 border-white rounded-full w-96">
+                <tr>
+                   <th class="text-white text-center">SNo.</th>
+                   <th class="text-white text-center">Verdict</th>
+                   <th class="text-white text-center">Problem Code</th>
+		           <th class="text-white text-center">Submitted At</th>
+                </tr>
+                <div class="space-y-3 items-center">
+                {% for sol in solutions %}
+                    <tr class="border-2 border-white rounded-full">
+                        <td class="text-white text-center">{{forloop.counter}}</td>
+                        <td class="text-white text-center">{{sol.verdict}}</td>
+                        <td class="text-white text-center">{{sol.problem_code}}</td>
+			            <td class="text-white text-center">{{sol.submittedAt}}</td>
+                        <td class="text-white text-center">
+                            <a href="{{base_url}}/oj/problem/viewcode/{{sol.id}}" class="text-white text-center hover:bg-white hover:text-black">Show Code</a>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+                </div>
+            </table>
+        </div>
+    </div>
+{% endblock contents %}
+

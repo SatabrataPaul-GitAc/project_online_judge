@@ -1,0 +1,38 @@
+{% extends 'base.html' %} 
+{% block contents %} 
+    <div class="space-y-10 items-center">
+        <div class=" mx-20 mt-64 pl-96 py-8 bg-black">
+            <table class="border-2 border-white rounded-full w-96">
+                <tr>
+                   <th class="text-white text-center">SNo.</th>
+                   <th class="text-white text-center">Name</th>
+                   <th class="text-white text-center">View Problem</th>
+                   <th class="text-white text-center">Difficulty</th>
+                </tr>
+                <div class="space-y-3 items-center">
+                {% for prob in problems %}
+                    <tr class="border-2 border-white rounded-full">
+                        <td class="text-white text-center">{{forloop.counter}}</td>
+                        <td class="text-white text-center">{{prob.name}}</td>
+                        <td class="text-white text-center">
+                            <a href="{{base_url}}/oj/problem/{{prob.code}}" class="text-white text-center hover:bg-white hover:text-black">Show</a>
+                        </td>
+                        {% if prob.difficulty == 'easy' %}
+                            <td class="text-center bg-green-500 font-semibold text-white hover:text-black">{{prob.difficulty}}</td>
+                        {% endif %}
+                        {% if prob.difficulty == 'medium' %}
+                            <td class="text-center bg-orange-500 font-semibold text-white hover:text-black">{{prob.difficulty}}</td>
+                        {% endif %}
+                        {% if prob.difficulty == 'hard' %} 
+                            <td class="text-center bg-red-500 font-semibold text-white hover:text-black">{{prob.difficulty}}</td>
+                        {% endif %}
+                        </tr>
+                {% endfor %}
+                </div>
+            </table>
+        </div>
+        {% if next_page %}
+            <a href='{{base_url}}/oj/problems/{{page | add:"1"}}' class="bg-purple-600 hover:bg-opacity-70 text-white rounded-xl p-3 ml-60">Next Page</a>
+        {% endif %}
+    </div>
+{% endblock contents %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+{% block contents %} 
+    <div class="flex flex-col m-20 bg-black items-start space-y-6 p-10">
+        <div class="pl-4">
+            <p class="text-pink-600 text-xl text-center" id="pcode">Code:  {{problemcode}}</p>
+        </div>
+        <div class="p-4">
+            <p class="font-bold text-2xl text-white">{{problem | linebreaksbr}}</p><br>
+        </div>
+        <h2 class="ml-72 text-teal-500 font-bold">Write your code here</h2>
+        <textarea name="codesubmission" id="submission" cols="100" rows="10" class="ml-72 pl-8"></textarea>
+        <button type="submit" class="ml-72 rounded-full px-6 py-2 bg-blue-600 hover:bg-opacity-80 font-bold" onclick="submitCode()">Submit</button>
+    </div>
+{% endblock contents %} 

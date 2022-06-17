@@ -1,0 +1,14 @@
+{
+  "name": "project_oj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "npx tailwindcss -i ./input.css -o ../static/main.css --watch"
+  },
+  "author": "Satabrata Paul",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.1.3"
+  }
+}
